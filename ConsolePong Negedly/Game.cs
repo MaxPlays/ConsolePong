@@ -45,6 +45,8 @@ namespace ConsolePong_Negedly
                 if(ms > loopTime)
                 {
                     t0 = t1;
+                    UserInput.GetKeyState(paddleLeft, paddleRight);
+
                     Field.DrawCenterLine();
 
                     ball.Update();
