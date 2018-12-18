@@ -13,9 +13,14 @@ namespace ConsolePong_Negedly
         private ConsoleColor backColor = ConsoleColor.Black;
         private int loopTime = 90;
 
+        private Ball ball;
+        private char ballCharacter = '■';
+        private ConsoleColor ballColor = ConsoleColor.White;
+
         public Game()
         {
             Field.Draw(fieldSize, foreColor, backColor);
+            ball = new Ball(ballCharacter, ballColor, fieldSize);
         }
 
         public void Run()
@@ -30,6 +35,8 @@ namespace ConsolePong_Negedly
                     t0 = t1;
                     Field.DrawCenterLine();
 
+                    ball.Update();
+                    ball.Draw();
                 }
             }
         }
