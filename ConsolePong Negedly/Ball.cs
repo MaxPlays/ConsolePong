@@ -22,7 +22,7 @@ namespace ConsolePong_Negedly
             positionNew = positionStart;
             positionOld = positionStart;
 
-            velocity = new Vector(4, 0);
+            velocity = new Vector(4, 2);
         }
 
         public void Update()

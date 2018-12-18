@@ -17,10 +17,22 @@ namespace ConsolePong_Negedly
         private char ballCharacter = '■';
         private ConsoleColor ballColor = ConsoleColor.White;
 
+        private char paddleCharacter = '█';
+        private int paddleSize = 4, paddleSpeed = 1, paddleOffset = 6;
+
+        private Paddle paddleLeft;
+        private ConsoleColor paddleLeftColor = ConsoleColor.White;
+
+        private Paddle paddleRight;
+        private ConsoleColor paddleRightColor = ConsoleColor.White;
+
         public Game()
         {
             Field.Draw(fieldSize, foreColor, backColor);
             ball = new Ball(ballCharacter, ballColor, fieldSize);
+
+            paddleLeft = new Paddle(paddleCharacter, paddleLeftColor, fieldSize, new Vector(paddleOffset - 1, (fieldSize.Y - paddleSize) / 2), paddleSize, paddleSpeed);
+            paddleRight = new Paddle(paddleCharacter, paddleRightColor, fieldSize, new Vector(fieldSize.X - paddleOffset, (fieldSize.Y - paddleSize) / 2), paddleSize, paddleSpeed);
         }
 
         public void Run()
@@ -37,6 +49,9 @@ namespace ConsolePong_Negedly
 
                     ball.Update();
                     ball.Draw();
+
+                    paddleLeft.Draw();
+                    paddleRight.Draw();
                 }
             }
         }
