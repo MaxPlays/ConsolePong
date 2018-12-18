@@ -10,7 +10,8 @@ namespace ConsolePong_Negedly
     {
         static void Main(string[] args)
         {
-            
+            new Game().Run();
+            Console.ReadLine();
         }
     }
 }

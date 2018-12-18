@@ -32,7 +32,7 @@ namespace ConsolePong_Negedly
         /// <summary>
         /// Draws the center line
         /// </summary>
-        private static void DrawCenterLine()
+        public static void DrawCenterLine()
         {
             int w = Console.WindowWidth;
             int h = Console.WindowHeight;
