@@ -1,0 +1,7 @@
+C:\Users\Max\source\repos\ConsolePong Negedly\ConsolePong Negedly\bin\Debug\ConsolePong Negedly.exe.config
+C:\Users\Max\source\repos\ConsolePong Negedly\ConsolePong Negedly\bin\Debug\ConsolePong Negedly.exe
+C:\Users\Max\source\repos\ConsolePong Negedly\ConsolePong Negedly\bin\Debug\ConsolePong Negedly.pdb
+C:\Users\Max\source\repos\ConsolePong Negedly\ConsolePong Negedly\obj\Debug\ConsolePong Negedly.csprojAssemblyReference.cache
+C:\Users\Max\source\repos\ConsolePong Negedly\ConsolePong Negedly\obj\Debug\ConsolePong Negedly.csproj.CoreCompileInputs.cache
+C:\Users\Max\source\repos\ConsolePong Negedly\ConsolePong Negedly\obj\Debug\ConsolePong Negedly.exe
+C:\Users\Max\source\repos\ConsolePong Negedly\ConsolePong Negedly\obj\Debug\ConsolePong Negedly.pdb
