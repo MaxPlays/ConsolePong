@@ -25,7 +25,7 @@ namespace ConsolePong_Negedly
             velocity = new Vector(3, 0);
         }
 
-        public void Update(Paddle paddleLeft)
+        public void Update(Paddle paddleLeft, Paddle paddleRight)
         {
             positionNew = positionOld + velocity;
 
@@ -75,6 +75,26 @@ namespace ConsolePong_Negedly
                     velocity.Y = 1;
                 }
                 positionNew.X = paddleLeft.Position.X + 1;
+            }
+
+            if (positionNew.X >= paddleRight.Position.X + 1 && positionNew.X <= paddleRight.Position.X + velocity.X + 2 && positionNew.Y >= paddleRight.Position.Y && positionNew.Y < paddleRight.Position.Y + paddleRight.Size)
+            {
+                if (positionNew.Y < paddleRight.Position.Y + paddleRight.Size / 3)
+                {
+                    velocity.X = -4;
+                    velocity.Y = -1;
+                }
+                else if (positionNew.Y < paddleRight.Position.Y + 2 * paddleRight.Size / 3)
+                {
+                    velocity.X = -4;
+                    velocity.Y = 0;
+                }
+                else
+                {
+                    velocity.X = -4;
+                    velocity.Y = 1;
+                }
+                positionNew.X = paddleRight.Position.X - 1;
             }
         }
         public void Draw()
