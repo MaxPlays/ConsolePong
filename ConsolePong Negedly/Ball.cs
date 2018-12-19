@@ -11,6 +11,13 @@ namespace ConsolePong_Negedly
         private char character;
         private ConsoleColor color;
         private Vector fieldSize, positionNew, positionOld, positionStart, velocity;
+        private Random random = new Random();
+
+        public ConsoleColor Color {
+            set {
+                color = value;
+            }
+        }
 
         public Ball(char character, ConsoleColor color, Vector fieldSize)
         {
@@ -97,7 +104,7 @@ namespace ConsolePong_Negedly
                 positionNew.X = paddleRight.Position.X - 1;
             }
         }
-        public void Draw()
+        public Vector Draw()
         {
             Console.SetCursorPosition(positionOld.X, positionOld.Y);
             Console.Write(" ");
@@ -107,6 +114,15 @@ namespace ConsolePong_Negedly
             Console.Write(character);
             Console.ForegroundColor = foregroundColor;
             positionOld = positionNew;
+            return positionNew;
+        }
+        public void Reset()
+        {
+            positionNew = positionStart;
+            if (random.Next(0, 2) == 0)
+                velocity = new Vector(4, 0);
+            else
+                velocity = new Vector(-4, 0);
         }
     }
 }

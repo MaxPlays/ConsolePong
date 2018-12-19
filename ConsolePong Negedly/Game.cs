@@ -26,6 +26,10 @@ namespace ConsolePong_Negedly
         private Paddle paddleRight;
         private ConsoleColor paddleRightColor = ConsoleColor.White;
 
+        private int playerLeftScore = 0, playerRightScore = 0;
+
+        private int newBallDelay = 1500;
+
         public Game()
         {
             Field.Draw(fieldSize, foreColor, backColor);
@@ -38,6 +42,7 @@ namespace ConsolePong_Negedly
         public void Run()
         {
             DateTime t0 = DateTime.Now, t1;
+            Vector ballPosition;
             while (true)
             {
                 t1 = DateTime.Now;
@@ -48,14 +53,54 @@ namespace ConsolePong_Negedly
                     UserInput.GetKeyState(paddleLeft, paddleRight);
 
                     Field.DrawCenterLine();
+                    DrawScores();
 
                     ball.Update(paddleLeft, paddleRight);
-                    ball.Draw();
+                    ballPosition = ball.Draw();
+
+                    if (ballPosition.X == 0)
+                    {
+                        playerRightScore++;
+                        NewBall();
+                    } 
+                    if (ballPosition.X == fieldSize.X - 1)
+                    {
+                        playerLeftScore++;
+                        NewBall();
+                    }          
 
                     paddleLeft.Draw();
                     paddleRight.Draw();
                 }
             }
+        }
+
+        public void DrawScores()
+        {
+            ConsoleColor foregroundColor = Console.ForegroundColor;
+            Console.ForegroundColor = paddleLeftColor;
+            Console.SetCursorPosition(paddleOffset - 1 + (fieldSize.X / 2 - paddleOffset) / 2, 1);
+            Console.Write(playerLeftScore);
+            Console.ForegroundColor = paddleRightColor;
+            Console.SetCursorPosition(fieldSize.X / 2 + (fieldSize.X / 2 - paddleOffset) / 2, 1);
+            Console.Write(playerRightScore);
+            Console.ForegroundColor = foregroundColor;
+        }
+
+        private void NewBall()
+        {
+            ball.Color = ConsoleColor.Red;
+            ball.Draw();
+            ball.Color = ballColor;
+            System.Threading.Thread.Sleep(newBallDelay);
+            DrawScores();
+            paddleLeft.Reset();
+            paddleLeft.Draw();
+            paddleRight.Reset();
+            paddleRight.Draw();
+            ball.Reset();
+            ball.Draw();
+            System.Threading.Thread.Sleep(newBallDelay);
         }
     }
 }

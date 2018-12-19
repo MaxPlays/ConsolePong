@@ -74,5 +74,10 @@ namespace ConsolePong_Negedly
             Console.ForegroundColor = foregroundColor;
             positionOld = positionNew;
         }
+
+        public void Reset()
+        {
+            positionNew = positionStart;
+        }
     }
 }
