@@ -13,6 +13,17 @@ namespace ConsolePong_Negedly
         private Vector fieldSize, positionNew, positionOld, positionStart;
         private int size, speed;
 
+        public int Size {
+            get {
+                return size;
+            }
+        }
+        public Vector Position {
+            get {
+                return positionNew;
+            }
+        }
+
         public Paddle(char character, ConsoleColor color, Vector fieldSize, Vector positionStart, int size, int speed)
         {
             this.character = character;

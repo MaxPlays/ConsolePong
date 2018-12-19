@@ -49,7 +49,7 @@ namespace ConsolePong_Negedly
 
                     Field.DrawCenterLine();
 
-                    ball.Update();
+                    ball.Update(paddleLeft);
                     ball.Draw();
 
                     paddleLeft.Draw();
