@@ -30,6 +30,8 @@ namespace ConsolePong_Negedly
 
         private int newBallDelay = 1500;
 
+        private bool runGameLoop = true;
+
         public Game()
         {
             Field.Draw(fieldSize, foreColor, backColor);
@@ -43,14 +45,15 @@ namespace ConsolePong_Negedly
         {
             DateTime t0 = DateTime.Now, t1;
             Vector ballPosition;
-            while (true)
+            GameStartScreen();
+            while (runGameLoop)
             {
                 t1 = DateTime.Now;
                 int ms = (t1.Millisecond - t0.Millisecond + 1000) % 1000;
                 if(ms > loopTime)
                 {
                     t0 = t1;
-                    UserInput.GetKeyState(paddleLeft, paddleRight);
+                    runGameLoop = UserInput.GetKeyState(paddleLeft, paddleRight);
 
                     Field.DrawCenterLine();
                     DrawScores();
@@ -73,6 +76,7 @@ namespace ConsolePong_Negedly
                     paddleRight.Draw();
                 }
             }
+            GameEndScreen();
         }
 
         public void DrawScores()
@@ -101,6 +105,26 @@ namespace ConsolePong_Negedly
             ball.Reset();
             ball.Draw();
             System.Threading.Thread.Sleep(newBallDelay);
+        }
+
+        private void GameEndScreen()
+        {
+            Console.Clear();
+            Console.SetCursorPosition(fieldSize.X / 2 - 5, fieldSize.Y / 2);
+            Console.Write("Game Ended");
+            Console.SetCursorPosition(fieldSize.X / 2 - 5, fieldSize.Y / 2 + 1);
+            Console.Write(playerLeftScore + " : " + playerRightScore);
+        }
+
+        private void GameStartScreen()
+        {
+            Console.Clear();
+            Console.SetCursorPosition(fieldSize.X / 2 - 16, fieldSize.Y / 2);
+            Console.Write("Console Pong - Maximilian Negedly");
+            Console.SetCursorPosition(fieldSize.X / 2 - 11, fieldSize.Y / 2 + 1);
+            Console.Write("Press any key to start");
+            Console.ReadLine();
+            Console.Clear();
         }
     }
 }

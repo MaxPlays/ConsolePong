@@ -24,6 +24,8 @@ namespace ConsolePong_Negedly
                     paddleRight.Update("up");
                 if (GetAsyncKeyState((int)ConsoleKey.L) != 0)
                     paddleRight.Update("down");
+                if (GetAsyncKeyState((int)ConsoleKey.Escape) != 0)
+                    return false;
             }
             return true;
         }

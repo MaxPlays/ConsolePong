@@ -5,3 +5,5 @@ C:\Users\Max\source\repos\ConsolePong Negedly\ConsolePong Negedly\obj\Debug\Cons
 C:\Users\Max\source\repos\ConsolePong Negedly\ConsolePong Negedly\obj\Debug\ConsolePong Negedly.csproj.CoreCompileInputs.cache
 C:\Users\Max\source\repos\ConsolePong Negedly\ConsolePong Negedly\obj\Debug\ConsolePong Negedly.exe
 C:\Users\Max\source\repos\ConsolePong Negedly\ConsolePong Negedly\obj\Debug\ConsolePong Negedly.pdb
+C:\Users\Max\source\repos\ConsolePong Negedly\ConsolePong Negedly\obj\Debug\ConsolePong_Negedly.Resource1.resources
+C:\Users\Max\source\repos\ConsolePong Negedly\ConsolePong Negedly\obj\Debug\ConsolePong Negedly.csproj.GenerateResource.cache
